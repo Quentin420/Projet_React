@@ -8,6 +8,8 @@ import jeanne from '../Images/jeanne.jpg';
 import Followers from '../Components/Followers';
 import Chart from '../Components/Chart';
 import TodoList from '../Components/TodoList';
+import Weather from '../Components/Weather';
+import Calendrier from '../Components/Calendrier';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -45,4 +47,6 @@ storiesOf('Profil', module).add('widget profil', () => <Profil
 storiesOf('Followers', module).add('widget followers', () => <Followers nbrfollowers="4500"/>);
 storiesOf('Chart', module).add('widget chart', () => <Chart data ={infos}/>);
 storiesOf('ToDo', module).add('widget todo', () => <TodoList />);
+storiesOf('Weather', module).add('widget weather', () => <Weather />);
+storiesOf('Calendar', module).add('widget calendar', () => <Calendrier  />);
 
