@@ -10,6 +10,8 @@ import Chart from '../Components/Chart';
 import TodoList from '../Components/TodoList';
 import Weather from '../Components/Weather';
 import Calendrier from '../Components/Calendrier';
+import Calendar from 'react-calendar';
+import Clock from 'react-clock';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -22,6 +24,8 @@ import { Button, Welcome } from '@storybook/react/demo';
       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
+
+let now = new Date();
 
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
@@ -48,5 +52,6 @@ storiesOf('Followers', module).add('widget followers', () => <Followers nbrfollo
 storiesOf('Chart', module).add('widget chart', () => <Chart data ={infos}/>);
 storiesOf('ToDo', module).add('widget todo', () => <TodoList />);
 storiesOf('Weather', module).add('widget weather', () => <Weather />);
-storiesOf('Calendar', module).add('widget calendar', () => <Calendrier  />);
+storiesOf('Calendar', module).add('widget calendar', () => <Calendrier year={now.getFullYear()} month={now.getMonth()+1} day={now.getDate()} />);
+
 
