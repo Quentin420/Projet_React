@@ -1,15 +1,46 @@
 .chart{
-	background-color: lightgrey;
+	background-color: #1e1e2f;
   border-radius: 1em;
-  border: 0.2em solid lightgrey;
+  border: 0.2em solid #1e1e2f;
   margin: 0.5em;
 }
 
 .profil{
-	background-color: lightgrey;
+	background-color: #1e1e2f;
   border-radius: 1em;
-  border: 0.2em solid lightgrey;
+  border: 0.2em solid #1e1e2f;
   margin: 0.5em;
-  width: 500px;
-	height:500px;
+}
+
+.followers{
+	background-color: #1e1e2f;
+  	border-radius: 1em;
+  	border: 0.2em solid #1e1e2f;
+  	margin: 0.5em;
+  	padding-top: 5%;
+  	text-align: center;
+  	font-size: 2em;
+}
+
+.clock{
+	background-color: #1e1e2f;
+  	border-radius: 1em;
+  	border: 0.2em solid #1e1e2f;
+  	margin: 0.5em;
+  	padding-top: 12%;
+  	text-align: center;
+}
+
+.weather{
+ 	background-color: #1e1e2f;
+  	border-radius: 1em;
+  	border: 0.2em solid #1e1e2f;
+  	margin: 0.5em;
+}
+
+.todo{
+  	background-color: #1e1e2f;
+  	border-radius: 1em;
+  	border: 0.2em solid #1e1e2f;
+  	margin: 0.5em;
 }

@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
       <Row>
       <Col xl="12">
-        <header className="header">
+        <header>
         Dashboard
         </header>
       </Col>
@@ -19,12 +19,12 @@ class App extends Component {
       <Row>
       <Col xl="1" lg="2" md="3" sm="4" xs="5" className="link">
       <aside>
-          <nav>
-          <ul>
-          <li><Link className="linkCol" to="/">Home</Link></li>
-          <li><Link className="linkCol" to="/admin">Admin</Link></li>
-          </ul>
-          </nav>
+         <div>
+            <Link className="linkCol" to="/">Home</Link>
+          </div>
+          <div>
+            <Link className="linkCol" to="/admin">Admin</Link>
+          </div>
          </aside>
       </Col>
       <Col xl="10" lg="9" md="8" sm="7" xs="6">
@@ -35,7 +35,7 @@ class App extends Component {
       </Row>
         
         <footer>
-        I'm a footer
+        Quentin Lemerle - OCRES TD2 - 2019
         </footer>
         
         </div>

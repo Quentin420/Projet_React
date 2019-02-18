@@ -3,32 +3,34 @@
   background-color: black;
 }
 
-.header{
-  font-size: 1em;
+header{
+  font-size: 2em;
   color: grey;
   background-color: black;
   text-align: left;
+  margin-bottom: 0.5em;
 }
 
 .link{
   font-size: 1em;
   color: white;
-  background-color: magenta;
+  background-color: #cc00ff;
   border-radius: 1em;
-  border: 1em solid magenta;
-  margin-left: 1em;
-  
-}
-
-.link nav{
-	margin-right: 2.5em;
-}
-
-.link nav ul{
-	list-style-type:none;
+  border: 1em solid #cc00ff;
+  margin-left: 1.5em;
+  text-align: center;
 }
 
 .linkCol {
 	color:white;
+}
+
+footer{
+  font-size: 0.75em;
+  color: grey;
+  background-color: black;
+  text-align: center;
+  margin-top: 0.2em;
+  padding-bottom: 0.2em;
 }
 

@@ -7,20 +7,22 @@ class Profil extends React.Component{
 		super(props);
 		this.state={
 			
-			bgcolor: this.props.bgcolor,
+			bgcolor: "#1e1e2f",
+			colortxt: "#6699ff",
 		};
 	}
 
 	 boxClick = (e) => {
     this.setState({
-      bgcolor: "red"
+      bgcolor: "#6699ff",
+      colortxt: "#1e1e2f"
     })
   }
   
 
 	render(){
 		return(
-			<div className="Profil" style={{backgroundColor: this.state.bgcolor}}>
+			<div className="Profil" style={{backgroundColor: this.state.bgcolor,color:this.state.colortxt}}>
 			<img className="image" src={this.props.image}/>
 			<p>{this.props.prenom} {this.props.nom}</p>
 			<p>{this.props.naissance}</p>

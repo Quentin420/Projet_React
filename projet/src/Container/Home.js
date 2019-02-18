@@ -5,6 +5,10 @@ import Profil from '../Components/Profil';
 import jeanne from '../Images/jeanne.jpg';
 import Followers from '../Components/Followers';
 import Chart from '../Components/Chart';
+import Calendrier from '../Components/Calendrier';
+import Calendar from 'react-calendar';
+import Weather from '../Components/Weather';
+import TodoList from '../Components/TodoList';
 
 
 const infos = [
@@ -25,9 +29,10 @@ class Home extends Component {
     	<Row>
 
     	<Col xl="7" className="chart"><Chart data={infos}/></Col>
+    	<Col className="followers"><Followers nbrfollowers="4500"/></Col>
     	</Row>
     	<Row>
-    	<Col xl="10" className="profil"><Profil
+    	<Col xl="9" className="profil"><Profil
              prenom="quentin"
              nom="lemerle"
              naissance="08/12/1996"
@@ -35,6 +40,11 @@ class Home extends Component {
              bgcolor="white"
               />
         </Col>
+        <Col className="clock"><Calendrier /></Col>
+    	</Row>
+    	<Row>
+    	<Col className="weather"><Weather /></Col>
+    	<Col className="todo"><TodoList /></Col>
     	</Row>
       
       </Container>
