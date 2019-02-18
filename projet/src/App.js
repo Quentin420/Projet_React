@@ -8,24 +8,31 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      
       <Row>
       <Col xl="12">
         <header className="header">
-        <Row>
-        <Col xl="1" className="projet">Dashboard</Col>
-        <Col xl="10"></Col>
-        <Col xl="1" className="link">
-         
-          <Link to="/">Home</Link>
-          <Link to="/admin">Admin</Link>
-          <Route/>
-          </Col>
-         
-          </Row>
+        Dashboard
         </header>
-        </Col>
-        </Row>
+      </Col>
+      </Row>
+
+      <Row>
+      <Col xl="1" lg="2" md="3" sm="4" xs="5" className="link">
+      <aside>
+          <nav>
+          <ul>
+          <li><Link className="linkCol" to="/">Home</Link></li>
+          <li><Link className="linkCol" to="/admin">Admin</Link></li>
+          </ul>
+          </nav>
+         </aside>
+      </Col>
+      <Col xl="10" lg="9" md="8" sm="7" xs="6">
+      <main>
+       <Route/>
+      </main>
+      </Col>
+      </Row>
         
         <footer>
         I'm a footer

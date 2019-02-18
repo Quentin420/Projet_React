@@ -1,0 +1,15 @@
+.chart{
+	background-color: lightgrey;
+  border-radius: 1em;
+  border: 0.2em solid lightgrey;
+  margin: 0.5em;
+}
+
+.profil{
+	background-color: lightgrey;
+  border-radius: 1em;
+  border: 0.2em solid lightgrey;
+  margin: 0.5em;
+  width: 500px;
+	height:500px;
+}

@@ -3,17 +3,32 @@
   background-color: black;
 }
 
-.projet{
+.header{
   font-size: 1em;
   color: grey;
+  background-color: black;
+  text-align: left;
 }
 
 .link{
   font-size: 1em;
-  color: lightblue;
+  color: white;
+  background-color: magenta;
+  border-radius: 1em;
+  border: 1em solid magenta;
+  margin-left: 1em;
+  
 }
 
-.header{
-  background-color: black;
-
+.link nav{
+	margin-right: 2.5em;
 }
+
+.link nav ul{
+	list-style-type:none;
+}
+
+.linkCol {
+	color:white;
+}
+
