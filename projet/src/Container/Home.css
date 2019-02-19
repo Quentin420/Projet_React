@@ -5,6 +5,13 @@
   margin: 0.5em;
 }
 
+.barchart{
+  background-color: #1e1e2f;
+  border-radius: 1em;
+  border: 0.2em solid #1e1e2f;
+  margin: 0.5em;
+}
+
 .profil{
 	background-color: #1e1e2f;
   border-radius: 1em;
@@ -27,7 +34,7 @@
   	border-radius: 1em;
   	border: 0.2em solid #1e1e2f;
   	margin: 0.5em;
-  	padding-top: 12%;
+  	padding-top: 10%;
   	text-align: center;
 }
 
@@ -43,4 +50,11 @@
   	border-radius: 1em;
   	border: 0.2em solid #1e1e2f;
   	margin: 0.5em;
+}
+
+.player{
+    background-color: #1e1e2f;
+    border-radius: 1em;
+    border: 0.2em solid #1e1e2f;
+    margin: 0.5em;
 }
