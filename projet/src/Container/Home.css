@@ -34,7 +34,7 @@
   	border-radius: 1em;
   	border: 0.2em solid #1e1e2f;
   	margin: 0.5em;
-  	padding-top: 10%;
+  	padding-top: 8%;
   	text-align: center;
 }
 
@@ -58,3 +58,28 @@
     border: 0.2em solid #1e1e2f;
     margin: 0.5em;
 }
+
+@media only screen and (max-width: 800px) {
+   .chart {
+      display: none;
+   }
+   .barchart {
+    display: none;
+  }
+}   
+
+@media only screen and (max-width: 400px) {
+   
+   .clock {
+    padding-bottom: 10%;
+  }
+}  
+
+@media only screen and (max-width: 600px) {
+   .followers {
+      padding-top: 1%;
+   }
+   .clock {
+    padding-bottom: 10%;
+  }
+}   

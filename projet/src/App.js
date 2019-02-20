@@ -41,10 +41,10 @@ boxClick(){
       <Col xl="12">
         <header style={{backgroundColor: this.state.bgcolor}}>
         <Row>
-        <Col xl="10">
+        <Col xl="10" md="8" sm="7" xs="6">
         Dashboard
         </Col>
-        <Col xl="2">
+        <Col xl="2" md="4" sm="5" xs="6">
        <Button  outline color="primary" onClick={() => this.boxClick()}>
        Change Theme
        </Button>
@@ -54,7 +54,7 @@ boxClick(){
       </Col>
       </Row>
       <Row>
-      <Col xl="1" lg="2" md="3" sm="4" xs="5" className="link">
+      <Col xl="1" lg="2" md="2"  className="link">
       <aside>
          <div>
             <Link className="linkCol" to="/">Home</Link>
@@ -64,7 +64,7 @@ boxClick(){
           </div>
          </aside>
       </Col>
-      <Col xl="10" lg="9" md="8" sm="7" xs="6">
+      <Col xl="10" lg="9" md="9" sm="12" xs="12">
       <main>
        <Route/>
       </main>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
 import Clock from 'react-clock';
+import {Container, Row, Col} from 'reactstrap';
 import './Calendrier.css';
 
 
@@ -28,7 +29,11 @@ class Calendrier extends React.Component {
   }
   render() {
     return (
-      <div className='clocker'>{this.state.currentTime}</div>
+      
+      <div className='clocker'>
+      <Container>{this.state.currentTime}</Container>
+      </div>
+
     )
   }
 }
