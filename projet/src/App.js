@@ -71,7 +71,7 @@ boxClick(){
       </Col>
       </Row>
         <footer style={{backgroundColor: this.state.bgcolor}}>
-        Quentin Lemerle - OCRES TD2 - 2019
+        Hugo Fridlansky & Quentin Lemerle - OCRES TD2 - 2019
         </footer>
     </div>
     );

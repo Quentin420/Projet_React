@@ -1,25 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Copse|Hind+Madurai');
 
+.weather
+{
+  font-family: 'Hind Madurai';
 
-  .container {
-    width: 30%;
-    height: 100%;
-    text-align: center;
-    color: #6699ff;
-    padding: 0.5em 0 0 0;
-    
-    
-    
-    }
-    .location {
-      width: 100%;
-      margin: 0 auto;
-      
-      i {
-        font-size: 38px;
-        color: #6699ff;
-      }
-    }
-    
+  background:#F4ECE3;
+  width: 100%;
+  height: 100%;
+  display: flex ;
+  flex-direction: column ;
   
+  justify-content: space-around;
+  border:1px solid #7F90C4;
+  border-radius: 10px 10px;
+
+}
+
+.weather .info
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.weather .temp
+{
+  font-size: 1.5em;
+  margin:auto;
+    color: #7F90C4
+
+}
+
+.weather .city
+{
+  color:#273A6D;
+  margin-bottom: 0px;
+  font-size:1.3em;
+  margin-top:5px;
+}
+
+.weather .tempIcon
+{
+  width: 65px;
+  height: 65px;
+  margin: auto;
+}
+
+.tempIcon img
+{
+  width: 100%;
+  height: 100%;
+
+}
+
 

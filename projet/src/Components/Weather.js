@@ -1,83 +1,91 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from "axios";
 import './Weather.css';
+import axios from 'axios';
 
 
-
-
-function getLocation() {
-  return axios.get("https://ipapi.co/json/");
+function getLocation() 
+{
+    return axios.get("https://ipapi.co/json/");
 }
 
-function getWeather(location) {
-
-  let units = "&units=metric";
-  let appid = "&APPID=e8656d00ae56fd09428db5cae581be02";
-  
-  return axios.get("https://api.openweathermap.org/data/2.5/weather?q=" + location + units + appid);
+function getWeather(city)
+{
+  let Api_Key="b06bde5f45de9eebd1858f7aa68dae8a";
+  return axios.get("http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=metric&APPID="+ Api_Key);
 }
 
-class Weather extends React.Component {
+
+
+
+
+export default class Weather extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      format: 'C',
-      location: '',
-      weather: '',
-      temp: 0
-    };
+    this.state = 
+    {
+      
+      temperature: undefined,
+      city: this.props.city,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: undefined,
+        icon: undefined ,
+    }
   }
-  
-  componentDidMount() { 
+
+
+
+
+componentDidMount() { 
     let _this = this;
     
     getLocation().then(function(result) { 
-        let loc = result.data.city + ', ' + result.data.country;
+        let _city = result.data.city;
+        let _country =result.data.country;
       
-        getWeather(loc).then(function(result) {
+        getWeather(_city).then(function(result) {
 
           _this.setState({
-            location: loc,
-            weather: result.data.weather[0],
-            temp: result.data.main.temp
+            temperature:result.data.main.temp,
+            city:_city,
+            country: _country,
+            icon: require("../icons/" + result.data.weather[0].icon + ".png"),
+            
           })
 
         });
     }).catch(
       
       _this.setState({
-        location: 'Cannot get location.',
-        temp: null
+        city: 'Cannot get location.',
+        temp: null,
+        icon: require("../icons/loading.png"),
       })
       
     );
   }
-  
-  
-  
+
+
   render() {
-    let hr = (new Date).getHours()
-    let tod = (hr >= 17) ? 'night' : 'day';
-    
+
+      
+
+  
     return (
-      <div className='container'>
-        <h1>Local Weather</h1>
-        <div className='location'>
-          <h2>{this.state.location}</h2>
-          <p>{this.state.weather.main}</p>
-          <i className={'wi wi-owm-' + tod + '-' + this.state.weather.id}></i>
-          {this.state.temp && 
-            <p>{this.state.temp} &#176;{this.state.format}</p>
-          }
-          
+
+      <div className="weather">
+        
+        <p className="city">{this.state.city},<small> {this.state.country}</small></p>
+        <div className="info">
+          <p className="temp">{this.state.temperature} &#176;C</p>
+          <div className="tempIcon">
+            <img src={this.state.icon}/>
+          </div>
         </div>
       </div>
     );
   }
 }
-
-
-
-
-export default Weather;
