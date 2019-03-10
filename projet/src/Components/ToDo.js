@@ -14,7 +14,7 @@ export default class ToDo extends React.Component {
 	render() {
 		return (
 			<div className="Todo">
-				<label className="container"  >
+				<label className="ctn"  >
 						<p className="thgtodo">{this.props.todo}</p>
 						<input type="checkbox" checked={this.props.checked} onChange={this.props.toggleCB} />
   						<span className="checkmark"></span>

@@ -7,7 +7,7 @@ export default class notes extends React.Component {
 		super(props);
 		this.state = {
 			notes:[
-						{title:'ho1', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},],
+						{title:'Note 1', note:"Ceci est un exemple de note.", date:'01/01/10'},],
 			newTitle:"",
 			newNote:"",
 			

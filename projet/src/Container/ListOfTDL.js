@@ -8,8 +8,8 @@ export default class ListOfTDL extends React.Component {
 		this.state = {
 			newTitle:"",
 			lists:[
-				{title:"important",list:[{ToDo:'manger chez mamie',checked:false},{ToDo:'acheter des pattes',checked:true}]},
-				{title:"pas trop",list:[{ToDo:'acheter pain',checked:false},{ToDo:'manger 1 legume cru',checked:true}] }
+				{title:"important",list:[{ToDo:'Corriger rapport',checked:false},{ToDo:'Faire Benchmark',checked:true}]},
+				{title:"pas trop",list:[{ToDo:'Contacter RH',checked:false},{ToDo:'Rapport annuel',checked:true}] }
 			],
 		}
 		}

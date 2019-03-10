@@ -8,12 +8,15 @@ import jeanne from '../Images/jeanne.jpg';
 import Followers from '../Components/Followers';
 import Chart from '../Components/Chart';
 import Barchart from '../Components/Barchart';
-import TodoList from '../Components/TodoList';
 import Weather from '../Components/Weather';
-import Calendrier from '../Components/Calendrier';
 import Clock from 'react-clock';
 import SpotifyPlayer from 'react-spotify-player';
-import Calendar from 'rc-calendar';
+import Timer from '../Components/Timer';
+import Note from '../Components/Note';
+import Notes from '../Container/Notes';
+import ToDo from '../Components/ToDo';
+import TodoList from '../Container/TodoList';
+import ListOfTDL from '../Container/ListOfTDL';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -70,9 +73,45 @@ storiesOf('Profil', module).add('widget profil', () => <Profil
 storiesOf('Followers', module).add('widget followers', () => <Followers nbrfollowers="4500"/>);
 storiesOf('Chart', module).add('widget chart', () => <Chart data ={infos}/>);
 storiesOf('Barchart', module).add('widget barchart', () => <Barchart data ={data2}/>);
-storiesOf('ToDo', module).add('widget todo', () => <TodoList />);
+
 storiesOf('Weather', module).add('widget weather', () => <Weather />);
 storiesOf('Spotify', module).add('widget spotify', () => <SpotifyPlayer uri="spotify:album:1TIUsv8qmYLpBEhvmBmyBk" size={size}
   view={view}
   theme={theme} />);
+
+
+storiesOf('clock',module)
+  .add('time',() => <Timer/>)
+
+
+
+const notes=[
+{title:'ho1', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'ho2', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'ho 3', note:"encore une note ", date:'01/01/10'},
+{title:'ho 4e', note:"j'ecrit vlllaaaa les notes dans mon carnet de note que je me repetttteee sans arret, je met plusieur fois la meme lettre pour appuyer le mot", date:'01/01/10'},
+{title:'ho5e', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'h6', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'h7', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'h8', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+{title:'h9', note:"j'ecrit vlllaaaa les notes dans mon carnet de note", date:'01/01/10'},
+] 
+
+
+storiesOf('Notes',module)
+  .add('one note', () => <Note title="Damn Good Idea" note="les oiseaux sont les poissons du ciel!" date="03/04/2030" onClick={action('clicked')}/>)
+  .add('plusieurs notes',()=> <Notes notes={notes}/>)
+
+
+const Todos = [
+  {ToDo:'manger chez mamie',checked:false},
+  {ToDo:'acheter des pattes',checked:true},
+  {ToDo:'vendre le chien',checked:true}, 
+  {ToDo:'acheter la salade',checked:false},
+]
+
+storiesOf('ToDo List', module)
+  .add('ToDo elem', () => <ToDo todo="acheter du painnfinogn reoihgrio firehgi rhgi rhgihrig hrihgrihgi rhgih righrihgi" />)
+  .add('ToDo List', () => <TodoList TodoListName="truc pour maman" todos={Todos} />)
+  .add('list of TodoList', () => <ListOfTDL />)
 

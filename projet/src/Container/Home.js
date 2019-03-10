@@ -6,10 +6,15 @@ import jeanne from '../Images/jeanne.jpg';
 import Followers from '../Components/Followers';
 import Chart from '../Components/Chart';
 import Barchart from '../Components/Barchart';
-import Calendrier from '../Components/Calendrier';
 import Weather from '../Components/Weather';
-import TodoList from '../Components/TodoList';
 import SpotifyPlayer from 'react-spotify-player';
+import Timer from '../Components/Timer';
+import Note from '../Components/Note';
+import Notes from '../Container/Notes';
+import ToDo from '../Components/ToDo';
+import TodoList from '../Container/TodoList';
+import ListOfTDL from '../Container/ListOfTDL';
+
 
 
 const infos = [
@@ -40,18 +45,6 @@ const size = {
 
 class Home extends Component {
 
-
-
-
-
-
-
-
-
-
-
-
-
   render() {
     return (
     	<Container>
@@ -61,13 +54,16 @@ class Home extends Component {
     	<Col className="followers"><Followers nbrfollowers="4500"/></Col>
     	</Row>
     	<Row>
-    	   <Col xl="7" className="barchart"><Barchart data={data}/></Col>
-        <Col className="clock"><Calendrier /></Col>
+    	  <Col xl="7" className="barchart"><Barchart data={data}/></Col>
+        <Col className="clock"><Timer /></Col>
     	</Row>
     	<Row>
-    	<Col className="weather"><Weather /></Col>
-    	<Col className="todo"><TodoList /></Col>
-    	</Row>
+    	<Col xl="3" className="weather"><Weather /></Col>
+      <Col className="notes"><Notes /></Col>
+      </Row>
+      <Row>
+      <Col className="todo"><ListOfTDL /></Col>
+      </Row>
       <Row>
       <Col xl="7" className="player">
         <SpotifyPlayer uri="spotify:album:43QqlF5F3AuyBCedZAXrg3"size={size} view={'list'} theme={'black'} />

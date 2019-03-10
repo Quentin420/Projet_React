@@ -80,6 +80,7 @@ componentDidMount() {
         
         <p className="city">{this.state.city},<small> {this.state.country}</small></p>
         <div className="info">
+        <br/>
           <p className="temp">{this.state.temperature} &#176;C</p>
           <div className="tempIcon">
             <img src={this.state.icon}/>
