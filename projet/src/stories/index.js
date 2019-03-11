@@ -17,6 +17,8 @@ import Notes from '../Container/Notes';
 import ToDo from '../Components/ToDo';
 import TodoList from '../Container/TodoList';
 import ListOfTDL from '../Container/ListOfTDL';
+import VisualNumber from '../Components/VisualNumber';
+import NumberList from '../Container/NumberList';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -114,4 +116,19 @@ storiesOf('ToDo List', module)
   .add('ToDo elem', () => <ToDo todo="acheter du painnfinogn reoihgrio firehgi rhgi rhgihrig hrihgrihgi rhgih righrihgi" />)
   .add('ToDo List', () => <TodoList TodoListName="truc pour maman" todos={Todos} />)
   .add('list of TodoList', () => <ListOfTDL />)
+
+
+const numbers=[{logo:require("../icons/number.png"), title:"amis Facebook", quantity:"5400"},
+{logo:require("../icons/computer.png"), title:"Followers Twitter", quantity:"43400"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+]
+
+
+storiesOf('VisualNumbers',module)
+  .add('visualnumber', () => <VisualNumber logo={require("../icons/number.png")} title="Amis Facebook" quantity="400"/>)
+  .add('NumberList', () => <NumberList numbers={numbers}/>)
 

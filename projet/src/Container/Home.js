@@ -14,6 +14,8 @@ import Notes from '../Container/Notes';
 import ToDo from '../Components/ToDo';
 import TodoList from '../Container/TodoList';
 import ListOfTDL from '../Container/ListOfTDL';
+import VisualNumber from '../Components/VisualNumber';
+import NumberList from '../Container/NumberList';
 
 
 
@@ -36,6 +38,11 @@ const data = [
     {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
     {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
+
+const numbers=[{logo:require("../icons/number.png"), title:"amis Facebook", quantity:"5400"},
+{logo:require("../icons/computer.png"), title:"Followers Twitter", quantity:"43400"},
+{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+]
 
 const size = {
   width: '100%',
@@ -63,6 +70,9 @@ class Home extends Component {
       </Row>
       <Row>
       <Col className="todo"><ListOfTDL /></Col>
+      </Row>
+      <Row>
+      <Col className="followers"><NumberList numbers={numbers}/></Col>
       </Row>
       <Row>
       <Col xl="7" className="player">
