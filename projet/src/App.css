@@ -17,15 +17,13 @@ header{
   background-color: #7F90C4;
   border-radius: 1em;
   padding-top: 2rem;
-  margin-left: 1.5em;
   text-align: center;
 }
 
 .linkCol {
 	color:white;
-  margin-top: 1rem;
-  
 }
+
 
 footer{
   font-size: 0.75em;
@@ -36,3 +34,7 @@ footer{
   padding-bottom: 0.2em;
 }
 
+.container
+{
+  margin:0px;
+}

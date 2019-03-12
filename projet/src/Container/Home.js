@@ -80,14 +80,12 @@ class Home extends Component {
 
       <Col xl="3"><Notes /></Col>
       <Col xl="9"><ListOfTDL /></Col>
-      </Row>
-      <Row>
-     
-      </Row>
-      <Row>
+      
       <Col xl="7" className="player">
         <SpotifyPlayer uri="spotify:album:43QqlF5F3AuyBCedZAXrg3" size={size} view={'list'} theme={'black'} />
       </Col>
+
+
       <Col xl="4" className="profil"><Profil
              prenom="Jeanne"
              nom="Test"
@@ -95,6 +93,8 @@ class Home extends Component {
              image={jeanne}
               />
         </Col>
+
+
       </Row>
       </Container>
     );

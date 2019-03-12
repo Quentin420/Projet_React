@@ -64,7 +64,7 @@ boxClick(){
           </div>
          </aside>
       </Col>
-      <Col xl="10" lg="10" md="9" sm="12" xs="12">
+      <Col xl="11" lg="11" md="9" sm="12" xs="12">
       <main>
        <Route/>
       </main>
