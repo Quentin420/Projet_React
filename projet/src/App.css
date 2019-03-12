@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: black;
+  background-color: white;
 }
 
 header{
@@ -14,15 +14,17 @@ header{
 .link{
   font-size: 1em;
   color: white;
-  background-color: #cc00ff;
+  background-color: #7F90C4;
   border-radius: 1em;
-  border: 1em solid #cc00ff;
+  padding-top: 2rem;
   margin-left: 1.5em;
   text-align: center;
 }
 
 .linkCol {
 	color:white;
+  margin-top: 1rem;
+  
 }
 
 footer{

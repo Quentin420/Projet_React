@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props){
       super(props);
       this.state={
-        bgcolor: "black",
+        bgcolor: "#FFC8B2",
         colored:true
       };
     }
@@ -22,13 +22,13 @@ toggle(){
 boxClick(){
       if(this.state.colored==true){
         this.setState({
-              bgcolor: "#00004d",
+              bgcolor: "#BA603D",
               colored:false
       })
       }
       else{
         this.setState({
-            bgcolor: "black",
+            bgcolor: "#FFC8B2",
             colored:true
         })
       }
@@ -54,7 +54,7 @@ boxClick(){
       </Col>
       </Row>
       <Row>
-      <Col xl="1" lg="2" md="2"  className="link">
+      <Col xl="1" lg="1" md="2"  className="link">
       <aside>
          <div>
             <Link className="linkCol" to="/">Home</Link>
@@ -64,7 +64,7 @@ boxClick(){
           </div>
          </aside>
       </Col>
-      <Col xl="10" lg="9" md="9" sm="12" xs="12">
+      <Col xl="10" lg="10" md="9" sm="12" xs="12">
       <main>
        <Route/>
       </main>

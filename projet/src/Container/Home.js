@@ -26,7 +26,7 @@ const infos = [
       {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
       {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+     
 ];
 
 const data = [
@@ -36,12 +36,18 @@ const data = [
     {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
     {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
     {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+   
 ];
 
 const numbers=[{logo:require("../icons/number.png"), title:"amis Facebook", quantity:"5400"},
 {logo:require("../icons/computer.png"), title:"Followers Twitter", quantity:"43400"},
 {logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
+{logo:require("../icons/number.png"), title:"Fan fb", quantity:"29393"},
+{logo:require("../icons/number.png"), title:"Fan rap", quantity:"239399"},
+{logo:require("../icons/number.png"), title:"Fan incontestable", quantity:"-2399"},
+
+
+
 ]
 
 const size = {
@@ -55,28 +61,32 @@ class Home extends Component {
   render() {
     return (
     	<Container>
-    	<Row>
+    	<Row >
+        <Col xl="3"><Weather /></Col>
+        <Col xl="9" >
+          <Timer />
+          <NumberList numbers={numbers}/>
+        </Col>
+    
 
-    	<Col xl="7" className="chart"><Chart data={infos}/></Col>
-    	<Col className="followers"><Followers nbrfollowers="4500"/></Col>
-    	</Row>
-    	<Row>
-    	  <Col xl="7" className="barchart"><Barchart data={data}/></Col>
-        <Col className="clock"><Timer /></Col>
-    	</Row>
-    	<Row>
-    	<Col xl="3" className="weather"><Weather /></Col>
-      <Col className="notes"><Notes /></Col>
+       
+    	  <Col xl="6" className="chart">
+          <Chart data={infos}/>
+        </Col>
+
+        <Col xl="6" className="barchart">
+          <Barchart data={data}/>
+        </Col>
+
+      <Col xl="3"><Notes /></Col>
+      <Col xl="9"><ListOfTDL /></Col>
       </Row>
       <Row>
-      <Col className="todo"><ListOfTDL /></Col>
-      </Row>
-      <Row>
-      <Col className="followers"><NumberList numbers={numbers}/></Col>
+     
       </Row>
       <Row>
       <Col xl="7" className="player">
-        <SpotifyPlayer uri="spotify:album:43QqlF5F3AuyBCedZAXrg3"size={size} view={'list'} theme={'black'} />
+        <SpotifyPlayer uri="spotify:album:43QqlF5F3AuyBCedZAXrg3" size={size} view={'list'} theme={'black'} />
       </Col>
       <Col xl="4" className="profil"><Profil
              prenom="Jeanne"
