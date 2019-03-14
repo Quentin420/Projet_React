@@ -8,37 +8,15 @@ class Admin extends Component {
     return (
       <Container>
         <Form>
-        <Row className="infos">
-          <Col xl="4">
-            <FormGroup >
-              <Label>Nom</Label>
-              <Input type="text"/>
-            </FormGroup>
-          </Col>
-          <Col xl="4">
-            <FormGroup>
-              <Label>Prenom</Label>
-              <Input type="text"/>
-            </FormGroup>
-          </Col>
-          <Col xl="4">
-            <FormGroup>
-              <Label>Date de naissance</Label>
-              <Input type="date"/>
-            </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button style={{backgroundColor: "#1e1e2f"}}>Submit</Button>
-          </Col>
-        </Row>
-        <br/>
+        
         <Row className="follower">
           <Col>
             <FormGroup>
-              <Label>Nombre de followers Twitter</Label>
+              <Label>Nombre de followers</Label>
               <Input type="number"/>
+              <br/>
+              <Label>sur le reseau</Label>
+              <Input type="text"/>
             </FormGroup>
           </Col>
         </Row>

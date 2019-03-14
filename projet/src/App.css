@@ -1,28 +1,36 @@
 .App {
   text-align: center;
   background-color: white;
+  margin: 0px;
 }
+
 
 header{
   font-size: 2em;
   color: grey;
   background-color: black;
-  text-align: left;
-  margin-bottom: 0.5em;
+  text-align: center;
+  margin: auto;
 }
+
 
 .link{
   font-size: 1em;
   color: white;
   background-color: #7F90C4;
   border-radius: 1em;
-  padding-top: 2rem;
+ padding-top: 0.5rem;
+ padding-bottom: 0.5rem;
   text-align: center;
+  margin-bottom: 1rem;
+  transform: translateX(-20px);
 }
+
 
 .linkCol {
 	color:white;
 }
+
 
 
 footer{
@@ -37,4 +45,5 @@ footer{
 .container
 {
   margin:0px;
+
 }

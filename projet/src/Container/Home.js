@@ -60,43 +60,36 @@ class Home extends Component {
 
   render() {
     return (
-    	<Container>
+    <div>
     	<Row >
-        <Col xl="3"><Weather /></Col>
-        <Col xl="9" >
+        <Col xl="3" lg="3" md="12" className="d-none d-md-block"><Weather /></Col>
+        <Col  xl="9" lg="9" md="12" sm="12" xs="12">
           <Timer />
           <NumberList numbers={numbers}/>
         </Col>
     
 
        
-    	  <Col xl="6" className="chart">
+    	  <Col xl="6" lg="6" md="12"  className="chart d-none d-md-block">
           <Chart data={infos}/>
         </Col>
 
-        <Col xl="6" className="barchart">
+        <Col xl="6" lg="6" md="12" className="barchart d-none d-md-block">
           <Barchart data={data}/>
         </Col>
 
       <Col xl="3"><Notes /></Col>
       <Col xl="9"><ListOfTDL /></Col>
       
-      <Col xl="7" className="player">
-        <SpotifyPlayer uri="spotify:album:43QqlF5F3AuyBCedZAXrg3" size={size} view={'list'} theme={'black'} />
+      <Col  lg={{ size: 8, offset: 2 }} xs="12" className="d-none d-sm-block">
+        <div className="player">
+         <SpotifyPlayer  uri="spotify:album:43QqlF5F3AuyBCedZAXrg3" size={size} view={'list'} theme={'black'} />
+         </div>
       </Col>
 
 
-      <Col xl="4" className="profil"><Profil
-             prenom="Jeanne"
-             nom="Test"
-             naissance="08/12/1996"
-             image={jeanne}
-              />
-        </Col>
-
-
       </Row>
-      </Container>
+</div>
     );
   }
 }

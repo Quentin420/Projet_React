@@ -1,42 +1,23 @@
 
-
-
-.profil{
-	background-color: #F4ECE3;
-  border-radius: 1rem;
-  border: 1px solid #7F90C4;
-  margin: 0.5em;
-}
-
-
-.player{
+.player
+{
+  width: 100%;
+  height: 200px;
     background-color: #F4ECE3;
     border-radius: 1rem;
     border: 1px solid #7F90C4;
-    margin: 0.5rem;
+    margin-top: 1rem;
 }
 
-@media only screen and (max-width: 800px) {
-   .chart {
-      display: none;
-   }
-   .barchart {
-    display: none;
-  }
-}   
+.player iframe
+{
+  width: 95%;
+  height: 100%;
+  border-radius: 1rem;
 
-@media only screen and (max-width: 400px) {
-   
-   .clock {
-    padding-bottom: 10%;
-  }
-}  
+}
 
-@media only screen and (max-width: 600px) {
-   .followers {
-      padding-top: 1%;
-   }
-   .clock {
-    padding-bottom: 10%;
-  }
-}   
+  
+
+
+

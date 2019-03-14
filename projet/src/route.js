@@ -7,5 +7,5 @@ export default () => (
 	<Switch>
 		<Route path="/" exact component={Home}/>
 		<Route path="/admin" exact component={Admin}/>
-		</Switch>
+	</Switch>
 	);
