@@ -9,7 +9,7 @@ header{
   font-size: 2em;
   color: grey;
   background-color: black;
-  text-align: center;
+  text-align: left;
   margin: auto;
 }
 
@@ -42,8 +42,11 @@ footer{
   padding-bottom: 0.2em;
 }
 
-.container
-{
-  margin:0px;
 
+@media screen and (max-width: 767px)
+{
+  header
+  {
+    text-align: center;
+  }
 }

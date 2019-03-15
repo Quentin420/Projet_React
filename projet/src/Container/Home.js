@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Home.css';
 import {Container, Row, Col} from 'reactstrap';
 import Profil from '../Components/Profil';
-import jeanne from '../Images/jeanne.jpg';
 import Followers from '../Components/Followers';
 import Chart from '../Components/Chart';
 import Barchart from '../Components/Barchart';

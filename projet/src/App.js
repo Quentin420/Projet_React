@@ -40,11 +40,12 @@ boxClick(){
       <Row>
       <Col xl="12">
         <header style={{backgroundColor: this.state.bgcolor}}>
-        <Row>
-        <Col xl="10" md="8" sm="12" xs="12">
+        <Row className="no-gutters">
+        <Col className="dash" xl="10" md="8" sm="12" xs="12">
         Dashboard
         </Col>
-        <Col xl="2" md="4" className="d-none d-sm-block">
+
+        <Col xl="2" md="4" className="d-none d-md-block">
        <Button   outline color="primary" onClick={() => this.boxClick()}>
        Change Theme
        </Button>
