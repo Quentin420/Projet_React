@@ -60,7 +60,7 @@ class Home extends Component {
   render() {
     return (
     <div>
-    	<Row >
+    	<Row>
         <Col xl="3" lg="3" md="12" className="d-none d-md-block"><Weather /></Col>
         <Col  xl="9" lg="9" md="12" sm="12" xs="12">
           <Timer />
@@ -77,8 +77,8 @@ class Home extends Component {
           <Barchart data={data}/>
         </Col>
 
-      <Col xl="3"><Notes /></Col>
-      <Col xl="9"><ListOfTDL /></Col>
+      <Col xl="3" lg="4" md="5" xs="12"><Notes /></Col>
+      <Col xl="9" lg="8" md="7" xs="12"><ListOfTDL /></Col>
       
       <Col  lg={{ size: 8, offset: 2 }} xs="12" className="d-none d-sm-block">
         <div className="player">
