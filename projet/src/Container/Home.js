@@ -60,7 +60,7 @@ class Home extends Component {
   render() {
     return (
     <div>
-    	<Row>
+    	<Row >
         <Col xl="3" lg="3" md="12" className="d-none d-md-block"><Weather /></Col>
         <Col  xl="9" lg="9" md="12" sm="12" xs="12">
           <Timer />
