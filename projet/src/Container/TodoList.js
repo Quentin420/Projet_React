@@ -53,7 +53,7 @@ editNewTodo(event)
 				<div className="Todos">
 
 					{this.props.todos.map((todo, id) =>
-						 <ToDo key={id} todo={todo.ToDo} checked={todo.checked} deleteTodo={this.deleteTodo} toggleCB={() => this.props.toggleCB(todo, this.props.TodoListName)}/>
+						 <ToDo key={id} todo={todo.todo} checked={todo.checked} deleteTodo={this.deleteTodo} toggleCB={() => this.props.toggleCB(todo, this.props.TodoListName)}/>
 					)}
 
 				</div>

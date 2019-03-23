@@ -8,8 +8,8 @@ export default class ListOfTDL extends React.Component {
 		this.state = {
 			newTitle:"",
 			lists:[
-				{title:"important",list:[{ToDo:'Corriger rapport',checked:false},{ToDo:'Faire Benchmark',checked:true}]},
-				{title:"pas trop",list:[{ToDo:'Contacter RH',checked:false},{ToDo:'Rapport annuel',checked:true}] }
+				{title:"important",list:[{todo:'Corriger rapport',checked:false},{todo:'Faire Benchmark',checked:true}]},
+				{title:"pas trop",list:[{todo:'Contacter RH',checked:false},{todo:'Rapport annuel',checked:true}] }
 			],
 		}
 		}
@@ -53,7 +53,7 @@ export default class ListOfTDL extends React.Component {
 		
 
 	
-			let newtodo = {ToDo:todo, checked:false};
+			let newtodo = {todo:todo, checked:false};
 			let nwlists = this.state.lists;
 			let nwlist = this.state.lists.filter(list => list.title===todolisttitle);
 			let listwithtodo = [newtodo,...nwlist[0].list];
