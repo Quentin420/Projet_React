@@ -16,16 +16,23 @@ editNewTodo(event)
 		this.setState({newTodo: event.target.value})
 	}
 
-	deleteTodo = (todo) => {
+deleteTodo = (idtodo) => {
 		
-		this.props.deleteTodo(todo, this.props.TodoListName);
+		this.props.deleteTodo(idtodo, this.props.id);
 	}
+
+toggleCB = (idtodo) => {
+		console.log(idtodo);
+		this.props.toggleCB(idtodo, this.props.id);
+	}
+
+
 
 	addTodo = () =>
 	{
 		if(this.state.newTodo!="")
 		{
-			this.props.addTodo(this.state.newTodo , this.props.TodoListName);
+			this.props.addTodo(this.state.newTodo , this.props.id);
 			this.setState({newTodo:""});
 
 		}
@@ -35,10 +42,11 @@ editNewTodo(event)
 	{
 		if(e.key=='Enter')
 		{
-			this.props.addTodo(this.state.newTodo , this.props.TodoListName);
-			this.setState({newTodo:""});
+			this.addTodo();
 		}
 	}
+
+
 
 	render() {
 		return (
@@ -53,7 +61,8 @@ editNewTodo(event)
 				<div className="Todos">
 
 					{this.props.todos.map((todo, id) =>
-						 <ToDo key={id} todo={todo.todo} checked={todo.checked} deleteTodo={this.deleteTodo} toggleCB={() => this.props.toggleCB(todo, this.props.TodoListName)}/>
+
+						 <ToDo key={id} id={todo._id} todo={todo.todo} checked={todo.checked % 2} deleteTodo={this.deleteTodo} toggleCB={this.toggleCB}/>
 					)}
 
 				</div>

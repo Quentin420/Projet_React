@@ -1,18 +1,32 @@
 import React from 'react';
+import axios from 'axios';
 import TodoList from '../Container/TodoList';
 import "./ListOfTDL.css"
 
 export default class ListOfTDL extends React.Component {
 	constructor(props) {
+
 		super(props);
 		this.state = {
 			newTitle:"",
-			lists:[
-				{title:"important",list:[{todo:'Corriger rapport',checked:false},{todo:'Faire Benchmark',checked:true}]},
-				{title:"pas trop",list:[{todo:'Contacter RH',checked:false},{todo:'Rapport annuel',checked:true}] }
-			],
+			lists:[],
 		}
 		}
+
+componentWillMount() {
+  this.fetchTDL();
+}
+
+
+fetchTDL = () => {
+	axios.get('http://localhost:3001/todolists')
+  .then(response => {
+    this.setState({lists: response.data})
+  })
+  .catch(error => console.log(error))
+}
+
+
 	
 	editNewTitle(event)
 	{
@@ -23,79 +37,73 @@ export default class ListOfTDL extends React.Component {
 	{
 		if(this.state.newTitle!=="")
 		{
-			let nwTitle = this.state.newTitle;
-			let Add = {title:nwTitle,list:[]};
-			let nwList = [...this.state.lists,Add];
-			this.setState({ newTitle:"", lists:nwList});
+
+			axios.put('http://localhost:3001/todolists', {title:this.state.newTitle})
+  			.then(response => {
+  				this.fetchTDL();
+  				this.setState({ newTitle:""});
+  				})
+ 			 .catch(error => console.log(error))
+			
 		}
 	}
 
 	deleteList(i)
 	{	
-		let nwList = this.state.lists;
-		const mynewList = nwList.filter(list => list!=i)  
-		this.setState({lists: mynewList});
+		axios.delete('http://localhost:3001/todolists/'+i,)
+  			.then(response => {
+  				this.fetchTDL();
+  				})
+ 			 .catch(error => console.log(error))
 	}
 
-	deleteTodo = (todo, todolisttitle) =>
+	deleteTodo = (idtodo, idlist) =>
 	{
-
-		let nwlists = this.state.lists;
-		let nwlist = this.state.lists.filter(list => list.title===todolisttitle);
-		let listwithtodo = [...nwlist[0].list];
-		let listremove = listwithtodo.filter(list => list.ToDo !== todo);
-		nwlists[this.state.lists.indexOf(nwlist[0])].list=listremove;
-		this.setState({lists:nwlists});
-	}
-
-	addTodo = (todo, todolisttitle) =>
-	{
-		
-
-	
-			let newtodo = {todo:todo, checked:false};
-			let nwlists = this.state.lists;
-			let nwlist = this.state.lists.filter(list => list.title===todolisttitle);
-			let listwithtodo = [newtodo,...nwlist[0].list];
-			nwlists[this.state.lists.indexOf(nwlist[0])].list=listwithtodo;
-			this.setState({lists:nwlists});
-
+		axios.delete('http://localhost:3001/todolists/' + idlist + "/" + idtodo)
+  			.then(response => {
+  				this.fetchTDL();
+  				})
+ 			 .catch(error => console.log(error))
 		
 	}
 
-	toggleCB = (todo, todolisttitle) =>
+	addTodo = (todotitle, idlist) =>
 	{
-		let nwlists = this.state.lists;
-		let nwlist = this.state.lists.filter(list => list.title===todolisttitle);	
-		let listwithtodo = [...nwlist[0].list];
-		let todototoggle = listwithtodo.filter(td => td ===todo);
-		todototoggle[0].checked = !todototoggle[0].checked;
-		nwlists[this.state.lists.indexOf(nwlist[0])].list=listwithtodo;
-		this.setState({lists:nwlists});
+		axios.post('http://localhost:3001/todolists/' + idlist ,{todo:todotitle})
+  			.then(response => {
+  				this.fetchTDL();
+  				})
+ 			 .catch(error => console.log(error))
+		
+	}
+
+	toggleCB = (idtodo, idlist) =>
+	{
+
+		axios.post('http://localhost:3001/todolists/' + idlist + '/' + idtodo)
+  			.then(response => {
+  				this.fetchTDL();
+  				})
+ 			 .catch(error => console.log(error))
 		
 	}
 	pressEnter(e)
 	{
 		if(e.key=='Enter')
 		{
-			if(this.state.newTitle!=="")
-			{
-				let nwTitle = this.state.newTitle;
-				let Add = {title:nwTitle,list:[]};
-				let nwList = [...this.state.lists,Add];
-				this.setState({ newTitle:"", lists:nwList});
-			}
+			this.AddList();
 		}
 	}
 
 	render() {
+
 		return (
 			<div className="ListOfTDL">
 			<div className="list">
 			
 			{this.state.lists.map((thelist, id) => 
 	
-						 <TodoList key={id} TodoListName={thelist.title} todos={thelist.list} deleteClick={() => this.deleteList(thelist)} deleteTodo={this.deleteTodo}  addTodo={this.addTodo} toggleCB={this.toggleCB}/>
+						 <TodoList key={id} id={thelist._id} TodoListName={thelist.title} todos={thelist.list} deleteClick={() => this.deleteList(thelist._id)} deleteTodo={this.deleteTodo}  addTodo={this.addTodo} toggleCB={this.toggleCB}/>
 					)
 			}
 			

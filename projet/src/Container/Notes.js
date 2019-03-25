@@ -1,38 +1,47 @@
 import React from 'react';
 import Note from '../Components/Note'
 import "./Notes.css"
+import axios from 'axios'
 
 export default class notes extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes:[
-						{title:'Note 1', note:"Ceci est un exemple de note.", date:'01/01/10'},],
+			notes:[],
 			newTitle:"",
 			newNote:"",
 			
 		}
 	}
 
+componentWillMount() {
+  this.fetchNotes();
+}
+
+
+fetchNotes = () => {
+	axios.get('http://localhost:3001/notes')
+  .then(response => {
+    this.setState({notes: response.data})
+  })
+  .catch(error => console.log(error))
+}
 	
 
-	addNote()
+addNote()
+{
+	if((this.state.newTitle!="")&&(this.state.newNote!=""))
 	{
-		if((this.state.newTitle!="")&&(this.state.newNotes!=""))
-		{
-			let date = new Date();
-			let ladate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-			let nwNotes = this.state.notes
-			let nwNote = {
-				title:this.state.newTitle,
-				note:this.state.newNote,
-				date:ladate,
-			}
-			nwNotes.unshift(nwNote);
-			this.setState({notes:nwNotes, newTitle:"",newNote:""})
+		axios.put('http://localhost:3001/notes',{title:this.state.newTitle , content:this.state.newNote})
+		 .then(response => {
+			this.fetchNotes();
+			this.setState({newTitle:"",newNote:""})
+		})
+		.catch(error => console.log(error))
+			
 		}
 		
-	}
+}
 
 	editNewTitle(event)
 	{
@@ -46,28 +55,18 @@ export default class notes extends React.Component {
 
 	deleteNote(i)
 	{
-		let newNotes = this.state.notes;
-		newNotes.splice(this.state.notes.indexOf(i),1)
-		this.setState({notes:newNotes})
+		axios.delete('http://localhost:3001/notes/'+i,)
+  			.then(response => {
+  				this.fetchNotes();
+  				})
+ 			 .catch(error => console.log(error))
 	}
 
 	noteEnter(e)
 	{
 		if(e.key=='Enter')
 		{
-			if((this.state.newTitle!="")&&(this.state.newNotes!=""))
-			{
-				let date = new Date();
-				let ladate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-				let nwNotes = this.state.notes
-				let nwNote = {
-					title:this.state.newTitle,
-					note:this.state.newNote,
-					date:ladate,
-				}
-				nwNotes.unshift(nwNote);
-				this.setState({notes:nwNotes, newTitle:"",newNote:""})
-			}
+			this.addNote();
 		}
 	}
 
@@ -85,7 +84,7 @@ export default class notes extends React.Component {
 
 				<div className="notes">
 					{this.state.notes.map((lanote, id) =>
-						 <Note  key={id} title={lanote.title} note={lanote.note} date={lanote.date} onClick={() => this.deleteNote(lanote)}/>
+						 <Note  key={id} title={lanote.title} note={lanote.content} date={lanote.date} onClick={() => this.deleteNote(lanote._id)}/>
 					)}
 				</div>
 			

@@ -12,14 +12,15 @@ export default class ToDo extends React.Component {
 	
 
 	render() {
+		
 		return (
 			<div className="Todo">
 				<label className="ctn"  >
 						<p className="thgtodo">{this.props.todo}</p>
-						<input type="checkbox" checked={this.props.checked} onChange={this.props.toggleCB} />
+						<input type="checkbox" checked={this.props.checked} onChange={() => this.props.toggleCB(this.props.id)} />
   						<span className="checkmark"></span>
 				</label>
-				<button onClick={() => this.props.deleteTodo(this.props.todo)}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
+				<button onClick={() => this.props.deleteTodo(this.props.id)}><img src={require("../icons/delete-button.png")} alt="delete"/></button>
 				
 			</div>
 		);
