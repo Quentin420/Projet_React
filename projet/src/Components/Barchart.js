@@ -6,20 +6,23 @@ import './Barchart.css';
 
 class Barchart extends React.Component{
 	render () {
+       
   	return (
-
-    <ResponsiveContainer width="100%" height={300}>
-    	<BarChart className="thebarchart" data={this.props.data}
-            margin={{top:10, right: 30, left: 20, bottom: 5}}>
+<div className="chartcontainer">
+        <p className="titleChart">{this.props.data.title} - {this.props.nom}</p>
+       
+        <ResponsiveContainer width="100%" height={300}>
+    	<BarChart  data={this.props.data.tracks}
+            margin={{top:10, right: 30, left: 20, bottom: 5}} layout="vertical">
         <CartesianGrid strokeDasharray="3 3"/>
-        <XAxis dataKey="name"/>
-        <YAxis/>
-        <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }}/>
+        <XAxis type='number' domain={['auto', 'auto']}/>
+        <YAxis dataKey="title" type="category"/>
+        <Tooltip />
         <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Bar dataKey="likes" fill="#8884d8" />
       </BarChart>
     </ResponsiveContainer>
+    </div>
     );
   }
 }

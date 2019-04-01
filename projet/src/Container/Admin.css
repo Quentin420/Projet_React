@@ -8,3 +8,9 @@
 	color:#6699ff;
 	font-size:1em;
 }
+
+select, button
+{
+	width: 100%;
+	height: 100%;
+}

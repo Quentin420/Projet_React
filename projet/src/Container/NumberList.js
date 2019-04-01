@@ -6,11 +6,13 @@ export default class NumberList extends React.Component {
 	
 
 	render() {
+
+		
 		return (
 
 			<div className="numbers">
-				{this.props.numbers.map((number, id) =>
-					<VisualNumber key={id} logo={number.logo} quantity={number.quantity} title={number.title} />
+				{this.props.numbers.map((number) =>
+					<VisualNumber key={number._id} id={number._id} logo={number.cover_url} title={number.title} artist={number.artist } quantity={number.likes} CalbumId={this.props.CalbumId} />
 				)}
 			</div>
 		);

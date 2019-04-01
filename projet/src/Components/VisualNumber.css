@@ -6,7 +6,7 @@
 	height: fit-content;
 	
 	background:#F4ECE3;
-
+	text-align: left;
 	display: flex ;
 	margin-top: 1rem;
 	margin-bottom: auto;
@@ -24,7 +24,7 @@
 	justify-content: center;
 	margin:10px;
 	justify-content: center;
-	float: right;
+	text-align: right;
 	margin-top:0px;
 	font-size: 1.4em;
 	color:#273A6D;
@@ -36,10 +36,13 @@
 	font-size: 0.8em;
 	color: #7F90C4;
 }
+
+
+
 .VisualNumber img
 {
 
-	width: 55px;
+	width: auto;
 	height: 55px;
 }
 

@@ -15,39 +15,12 @@ import TodoList from '../Container/TodoList';
 import ListOfTDL from '../Container/ListOfTDL';
 import VisualNumber from '../Components/VisualNumber';
 import NumberList from '../Container/NumberList';
+import axios from 'axios';
 
 
 
-const infos = [
-      {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-      {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-     
-];
-
-const data = [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-   
-];
-
-const numbers=[{logo:require("../icons/number.png"), title:"amis Facebook", quantity:"5400"},
-{logo:require("../icons/computer.png"), title:"Followers Twitter", quantity:"43400"},
-{logo:require("../icons/number.png"), title:"Fan Instagram", quantity:"2"},
-{logo:require("../icons/number.png"), title:"Fan fb", quantity:"29393"},
-{logo:require("../icons/number.png"), title:"Fan rap", quantity:"239399"},
-{logo:require("../icons/number.png"), title:"Fan incontestable", quantity:"-2399"},
 
 
-
-]
 
 const size = {
   width: '100%',
@@ -56,25 +29,95 @@ const size = {
 
 
 class Home extends Component {
+constructor(props) {
+    super(props);
+    this.state = {
+      albums:[],
+      albumData: [],
+      albumDataId:"5c9a71a36a8050dce76844aa",
+      likeAlbum:[],
+      artists:[],
+      artisttop:"sardou"
+      
+    }
+  }
+
+
+componentWillMount() {
+  this.fetchAlbums();
+  this.fetchAlbumData();
+  this.fetchLikes();
+  this.fetchArtist();
+}
+
+fetchArtist = () =>
+{
+  axios.get('http://localhost:3001/artists')
+  .then(response => {
+    this.setState({artists: response.data})
+  })
+  .catch(error => console.log(error))
+}
+
+fetchAlbums = () => {
+  axios.get('http://localhost:3001/albums')
+  .then(response => {
+    this.setState({albums: response.data})
+  })
+  .catch(error => console.log(error))
+}
+
+fetchAlbumData = () => {
+    axios.get('http://localhost:3001/albums/'+ this.state.albumDataId)
+  .then(response => {
+    this.setState({albumData: response.data},() => {console.log(this.state.albumData.artist_id.nom)})
+  })
+  .catch(error => console.log(error))
+  
+
+}
+
+fetchLikes = () => {
+   axios.get('http://localhost:3001/albums/likes/count')
+  .then(response => {
+    this.setState({likeAlbum: response.data})
+  })
+  .catch(error => console.log(error))
+}
+
+
+setAlbum = (id,art) => {
+
+  if(id!==this.state.albumDataId)
+  {
+    this.setState({
+      albumDataId:id,
+      artisttop:art
+    },() => {this.fetchAlbumData();});
+  }
+
+
+}
 
   render() {
+
     return (
     <div>
     	<Row >
         <Col xl="3" lg="3" md="12" className="d-none d-md-block"><Weather /></Col>
         <Col  xl="9" lg="9" md="12" sm="12" xs="12">
           <Timer />
-          <NumberList numbers={numbers}/>
+          <NumberList numbers={this.state.likeAlbum} CalbumId={this.setAlbum}/>
         </Col>
     
 
        
     	  <Col xl="6" lg="6" md="12"  className="chart d-none d-md-block">
-          <Chart data={infos}/>
+          <Chart data={this.state.artists}/>
         </Col>
 
         <Col xl="6" lg="6" md="12" className="barchart d-none d-md-block">
-          <Barchart data={data}/>
+          <Barchart nom={this.state.artisttop} data={this.state.albumData}/>
         </Col>
 
       <Col xl="3" lg="4" md="5" xs="12"><Notes /></Col>
@@ -85,8 +128,6 @@ class Home extends Component {
          <SpotifyPlayer  uri="spotify:album:43QqlF5F3AuyBCedZAXrg3" size={size} view={'list'} theme={'black'} />
          </div>
       </Col>
-
-
       </Row>
 </div>
     );

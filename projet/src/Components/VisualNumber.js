@@ -8,11 +8,12 @@ export default class VisualNumber extends React.Component {
 	}
 
 	render() {
+
 		return (
-			<div className="VisualNumber">	
-			<img src={this.props.logo} />
+			<div className="VisualNumber" >	
+			<img src={this.props.logo} onClick={() => this.props.CalbumId(this.props.id,this.props.artist)}/>
 				<div>
-					<p className="title">{this.props.title}</p> 
+					<p className="title">{this.props.title} - {this.props.artist}</p> 
 					<p className="quantity">{this.props.quantity}</p>					
 				</div>
 					

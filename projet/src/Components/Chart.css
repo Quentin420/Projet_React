@@ -12,6 +12,12 @@ div{
 		border:1px solid #7F90C4;
 	margin:0rem; 
 	margin-top: 1rem;
+	overflow-wrap: break-word;
+}
 
 
+.titleChart
+{
+	font-size: 1.4em;
+	color:#273A6D;
 }

@@ -5,10 +5,17 @@ div {
   width: 100%;
 }
 
-.thebarchart
+.chartcontainer
 {
 	background: #F4ECE3;
 	border-radius: 1rem;
 	margin-top: 1rem;
 	border:1px solid #7F90C4;
+}
+
+
+.titleChart
+{
+	font-size: 1.4em;
+	color:#273A6D;
 }

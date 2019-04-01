@@ -12,7 +12,6 @@ export default class ToDo extends React.Component {
 	
 
 	render() {
-		
 		return (
 			<div className="Todo">
 				<label className="ctn"  >
