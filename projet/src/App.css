@@ -41,6 +41,9 @@ footer{
   margin-top: 0.2em;
   padding-bottom: 0.2em;
 }
+main {
+  height: 100%;
+}
 
 
 @media screen and (max-width: 767px)
