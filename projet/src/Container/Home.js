@@ -34,21 +34,35 @@ constructor(props) {
     this.state = {
       albums:[],
       albumData: [],
-      albumDataId:"5c9a71a36a8050dce76844aa",
+      albumDataId:"",
       likeAlbum:[],
       artists:[],
-      artisttop:"sardou"
+      artisttop:""
       
     }
   }
 
 
 componentWillMount() {
-  this.fetchAlbums();
-  this.fetchAlbumData();
-  this.fetchLikes();
+  this.fetchFirstALbum();
   this.fetchArtist();
+  this.fetchAlbums();
+  this.fetchLikes();
+
 }
+
+fetchFirstALbum() {
+  axios.get('http://localhost:3001/albums')
+  .then(response => {
+    this.setAlbum(response.data[0]._id,response.data[0].nom)
+    this.setState({albumDataId:response.data[0]._id,
+    artisttop:response.data[0].artist_id.nom},() => {this.fetchAlbumData()});
+
+   console.log(response.data[0]._id + response.data[0].nom)
+  })
+  .catch(error => console.log(error))
+}
+
 
 fetchArtist = () =>
 {
@@ -70,7 +84,7 @@ fetchAlbums = () => {
 fetchAlbumData = () => {
     axios.get('http://localhost:3001/albums/'+ this.state.albumDataId)
   .then(response => {
-    this.setState({albumData: response.data},() => {console.log(this.state.albumData.artist_id.nom)})
+    this.setState({albumData: response.data})
   })
   .catch(error => console.log(error))
   
